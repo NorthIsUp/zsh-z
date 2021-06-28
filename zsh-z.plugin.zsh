@@ -300,7 +300,7 @@ zshz() {
     lines=( $existing_paths )
 
     for line in $lines; do
-      path_field=${line%%\|*}/
+      path_field=${line%%\|*}
       rank_field=${${line%\|*}#*\|}
       time_field=${line##*\|}
 
@@ -460,7 +460,7 @@ zshz() {
           REPLY=''
         done
         descending_list=( ${${(@On)descending_list}#*\|} )
-        print -l $descending_list
+        print -l ${descending_list%/}
         ;;
 
       list)
@@ -481,17 +481,17 @@ zshz() {
         # -lt
         if (( $+opts[-t] )); then
           for x in ${(@On)output}; do
-            print -- $x
+            print -- ${x%/}
           done
         # -lr
         elif (( $+opts[-r] )); then
           for x in ${(@on)output}; do
-            print -- $x
+            print -- ${x%/}
           done
         # -l
         else
           for x in ${(@on)output}; do
-            print $x
+            print ${x%/}
           done
         fi
         ;;
