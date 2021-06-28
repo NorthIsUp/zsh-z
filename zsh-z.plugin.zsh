@@ -409,7 +409,7 @@ zshz() {
 
     for x in ${(@)common_matches}; do
       if [[ -z $short ]] || (( $#x < $#short )) || [[ $x != ${short}/* ]]; then
-        short=$x
+        short=${x%/}
       fi
     done
 
