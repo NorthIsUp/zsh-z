@@ -413,7 +413,8 @@ zshz() {
       fi
     done
 
-    [[ $short == '/' ]] && return
+    # [[ $short == '/' ]] && return
+    [[ -z $short ]] && return
 
     for x in ${(@)common_matches}; do
       [[ $x != $short* ]] && return
