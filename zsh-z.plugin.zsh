@@ -349,7 +349,7 @@ zshz() {
 
     for line in $lines; do
 
-      path_field=${line%%\|*}/
+      path_field="${line%%\|*}/"
 
       # If the search string is all lowercase, the search will be case-insensitive
       if [[ $1 == "${1:l}" && ${path_field:l} == *${~1}* ]]; then
@@ -552,7 +552,7 @@ zshz() {
     lines=( $existing_paths )
 
     for line in $lines; do
-      path_field=${line%%\|*}/
+      path_field="${line%%\|*}/"
       rank_field=${${line%\|*}#*\|}
       time_field=${line##*\|}
 
